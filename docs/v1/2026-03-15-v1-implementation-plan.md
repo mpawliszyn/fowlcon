@@ -826,7 +826,7 @@ starting points — will be revisited in V1.001 with eval data."
   "description": "Agentic code review tool that organizes PRs into concept trees and walks reviewers through them interactively",
   "version": "1.0.0",
   "author": {
-    "name": "Mike Pawliszyn"
+    "name": "Michael Pawliszyn"
   },
   "homepage": "https://github.com/block/fowlcon",
   "repository": "https://github.com/block/fowlcon",

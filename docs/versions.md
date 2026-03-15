@@ -36,6 +36,7 @@ Parallel with V1.001. Everything that isn't agent prompts.
 - Priority fixes from V1 real usage
 - Script improvements: structured output (JSON), --help
 - Distribution cleanup and polish
+- Review plugin manifest attribution (author may need to be Block Inc.)
 - Format adjustments discovered during real use
 - Walkthrough UX rough edges
 
