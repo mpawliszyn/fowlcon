@@ -33,6 +33,7 @@ Parallel with V1.002. Agent prompts and the eval loop.
 
 Parallel with V1.001. Everything that isn't agent prompts.
 
+- Integration test: run full pipeline against cashapp/backfila#546, document findings
 - Priority fixes from V1 real usage
 - Script improvements: structured output (JSON), --help
 - Distribution: plugin packaging polish, install docs, marketplace readiness
