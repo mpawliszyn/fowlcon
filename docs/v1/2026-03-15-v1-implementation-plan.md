@@ -22,6 +22,9 @@
 - Workers use bare anti-rationalization (no "because" clauses) — test "explain the why" in V1.001
 - Concept-researcher starts WITHOUT Bash — add if needed in V1.00x
 - One placeholder few-shot example per agent — replace with real output in V1.001
+- The correct Claude Code tool name for dispatching subagents is `Agent` (not `Task` as some design docs say)
+- Commands inherit all tools by default in Claude Code — no `tools:` field needed in orchestrator frontmatter
+- `analysis.md` (mentioned in README data section) is deferred — not needed for rough V1
 
 ---
 
@@ -502,7 +505,8 @@ Return a structured concept description. Target 1,000-2,000 tokens. This is a sy
 - [ ] **Step 2: Verify prompt structure**
 
 Verify:
-- Tools include Agent (for dispatching workers) but NOT Bash (per decision to start without it)
+- Tools include `Agent` (the correct Claude Code tool name for dispatching subagents — design docs may say `Task`, which is outdated)
+- Tools do NOT include Bash (per decision to start without it — add in V1.00x if needed)
 - Output format targets 1,000-2,000 tokens (not an investigation trace)
 - Delegation queries are explicit, not vague
 - Supervisor mode handles worker failures gracefully
@@ -588,6 +592,7 @@ Verify:
 - Model is haiku (cheapest capable model for mechanical checks)
 - Agent reports only, does not fix or categorize gaps
 - No editorial content — pure mechanical verification
+- Note: this agent checks structural rules that go beyond `check-tree-quality.sh` (e.g., single-child nodes). The script handles 6 checks; the agent provides additional structural review.
 
 - [ ] **Step 3: Commit**
 
@@ -836,15 +841,13 @@ starting points — will be revisited in V1.001 with eval data."
 
 - [ ] **Step 2: Verify plugin discovery**
 
-After creating the manifest, verify that Claude Code discovers the agents and command:
-- `agents/codebase-locator.md` should appear as a dispatchable agent
-- `agents/codebase-analyzer.md` should appear
-- `agents/codebase-pattern-finder.md` should appear
-- `agents/concept-researcher.md` should appear
-- `agents/coverage-checker.md` should appear
-- `commands/review_pr.md` should appear as `/review-pr`
+Test that Claude Code discovers the agents and command by installing the plugin locally:
+1. From the repo root, check if `/review-pr` becomes available as a command
+2. Verify agents are dispatchable (try dispatching codebase-locator with a simple query)
 
-If the plugin system requires different directory conventions, adapt. The goal is: user installs the plugin, `/review-pr` becomes available.
+If `.claude-plugin/plugin.json` is not the correct format, check how superpowers packages its plugin (at `~/.claude/plugins/cache/claude-plugins-official/superpowers/`) and adapt. The superpowers plugin uses the same `plugin.json` format — follow that pattern.
+
+Full plugin packaging polish (proper metadata, marketplace readiness, install docs) is a V1.002 task.
 
 - [ ] **Step 3: Commit**
 
@@ -912,9 +915,18 @@ Do not commit test results to the repo — these are working notes, not design a
 
 - [ ] **Step 1: Update README status**
 
-Change "Phase 1 (formats + scripts) is in progress" to reflect V1 completion. Update installation instructions to reference the plugin system.
+Change line 172 from:
+```
+Fowlcon is under active development. Phase 1 (formats + scripts) is in progress.
+```
+To:
+```
+Fowlcon is under active development. V1 rough beta is available — full analysis and walkthrough pipeline working.
+```
 
-- [ ] **Step 2: Verify CONTRIBUTING.md is current**
+- [ ] **Step 2: Update installation section**
+
+If plugin installation works (Task 7), update the Installation section to show the plugin install command. If not, leave the existing `./scripts/install` reference — fixing install docs is a V1.002 task.
 
 - [ ] **Step 3: Commit**
 

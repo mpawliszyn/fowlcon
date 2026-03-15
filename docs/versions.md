@@ -35,10 +35,13 @@ Parallel with V1.001. Everything that isn't agent prompts.
 
 - Priority fixes from V1 real usage
 - Script improvements: structured output (JSON), --help
-- Distribution cleanup and polish
+- Distribution: plugin packaging polish, install docs, marketplace readiness
 - Review plugin manifest attribution (author may need to be Block Inc.)
+- README: installation instructions reflecting actual install mechanism
+- `analysis.md` output file (referenced in README but not yet implemented)
 - Format adjustments discovered during real use
 - Walkthrough UX rough edges
+- Reconcile coverage-checker agent checks vs `check-tree-quality.sh` scope
 
 ## V1.01 — TUI
 
