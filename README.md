@@ -169,7 +169,7 @@ Per-PR data persists across sessions. You can come back to a review later and pi
 
 ## Status
 
-Fowlcon is under active development. Phase 1 (formats + scripts) is in progress.
+Fowlcon is under active development. V1 rough beta is available — full analysis and walkthrough pipeline working.
 
 ## Acknowledgments
 
