@@ -17,36 +17,56 @@ functional, not polished.
 - Tested against cashapp/backfila#546 *(never happened — carried into
   V1.003)*
 
-## V1.001 — Agent Optimization
+## V1.001 — Agent Optimization (absorbed into the 2026-07 rework)
 
-Parallel with V1.002. Agent prompts and the eval loop.
+Never executed standalone. Absorbed 2026-07-14: items execute via the
+reactivation sessions and loops (S/L/RQ labels resolve in
+`docs/v1/2026-07-13-reactivation-playbook.md` and
+`docs/v1/2026-07-13-reactivation-findings.md`); V1.003 is the release
+that lands the results. Dispositions:
 
-- Eval framework (skill-creator pattern, ~20 test cases)
-- A/B prompt iteration for all agents and orchestrator
-- Revisit Q7 (tone) and Q8 (change boundary split) with eval data
-- Reconcile documentarian mandate item count (5 vs 6)
-- Concept-researcher Bash access: decide with evidence
-- Concept-researcher bottleneck: investigate and address
-- "Explain the why" anti-rationalization experiment
-- Semi-formal reasoning evaluation for analyzer
-- Prompt size reduction experiment (target: half of V1)
-- Few-shot examples updated from real PR output
-- Expand test PR corpus beyond backfila#546
+- Eval framework (skill-creator pattern, ~20 test cases) → S7 designs
+  and seeds it (3–5 PRs); L2 grows the corpus toward ~20
+- A/B prompt iteration for all agents and orchestrator → L1
+- Revisit Q7 (tone) and Q8 (change boundary split) with eval data →
+  RQ-7/RQ-8, L1 hypotheses
+- Reconcile documentarian mandate item count (5 vs 6) → RQ-12, settled
+  in S3
+- Concept-researcher Bash access: decide with evidence → RQ-9, S3
+  proposal + eval check
+- Concept-researcher bottleneck: investigate and address → RQ-10, S2
+  transcripts + S3
+- "Explain the why" anti-rationalization experiment → L1 hypothesis
+- Semi-formal reasoning evaluation for analyzer → L1 hypothesis
+- Prompt size reduction experiment (target: half of V1) → superseded:
+  the rework starts prompts minimal and grows them on evidence, rather
+  than shrinking V1 text
+- Few-shot examples updated from real PR output → S3/S5, sourced from
+  the shakedown trees
+- Expand test PR corpus beyond backfila#546 → L2
 
-## V1.002 — Fixes and Improvements
+## V1.002 — Fixes and Improvements (absorbed into the 2026-07 rework)
 
-Parallel with V1.001. Everything that isn't agent prompts.
+Never executed standalone. Absorbed 2026-07-14, same treatment as
+V1.001. Dispositions:
 
-- Integration test: run full pipeline against cashapp/backfila#546, document findings
-- Priority fixes from V1 real usage
-- Script improvements: structured output (JSON), --help
-- Distribution: plugin packaging polish, install docs, marketplace readiness
+- Integration test: run full pipeline against cashapp/backfila#546,
+  document findings → S1 (in progress; journal SF1/SF2 already logged)
+- Priority fixes from V1 real usage → S2 triage → S5
+- Script improvements: structured output (JSON), --help → L3
+- Distribution: plugin packaging polish, install docs, marketplace
+  readiness → S5 units (F4, F17)
 - Review plugin manifest attribution (author may need to be Block Inc.)
+  → S5 re-homing unit, per the S0 write-path decision
 - README: installation instructions reflecting actual install mechanism
-- `analysis.md` output file (referenced in README but not yet implemented)
-- Format adjustments discovered during real use
-- Walkthrough UX rough edges
-- Reconcile coverage-checker agent checks vs `check-tree-quality.sh` scope
+  → S5 (F4)
+- `analysis.md` output file (referenced in README but not yet
+  implemented) → S3 decides: implement it or retire the README claim
+  (F6)
+- Format adjustments discovered during real use → S2 → S5
+- Walkthrough UX rough edges → S2 → S3(b)
+- Reconcile coverage-checker agent checks vs `check-tree-quality.sh`
+  scope → S5 (F5)
 
 ## V1.003 — Validated V1
 
