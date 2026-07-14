@@ -2,16 +2,20 @@
 
 What we expect to ship in each release. Living document — ideas progress from Future Ideas into versions as they're scoped.
 
-## V1.0 — Rough Beta
+## V1.0 — Attempt (shipped 2026-03-15, never validated)
 
-Full pipeline working end-to-end. Functional, not polished.
+Aspirational V1: all artifacts shipped, but the end-to-end integration
+test never ran, so it never earned the release label. Kept in history
+as an attempt. Original intent: full pipeline working end-to-end,
+functional, not polished.
 
 - Worker agent prompts: codebase-locator, codebase-analyzer, codebase-pattern-finder
 - Concept-researcher agent prompt
 - Coverage-checker agent prompt
 - Orchestrator command (analysis phase + interactive walkthrough)
 - Distribution (follow superpowers pattern)
-- Tested against cashapp/backfila#546
+- Tested against cashapp/backfila#546 *(never happened — carried into
+  V1.003)*
 
 ## V1.001 — Agent Optimization
 
@@ -43,6 +47,21 @@ Parallel with V1.001. Everything that isn't agent prompts.
 - Format adjustments discovered during real use
 - Walkthrough UX rough edges
 - Reconcile coverage-checker agent checks vs `check-tree-quality.sh` scope
+
+## V1.003 — Validated V1
+
+The first release that earns the V1 label: the pipeline proven
+end-to-end against real PRs. Lands when the V1.001 + V1.002 workstreams
+(executed via the 2026-07 rework) validate:
+
+- Integration gaps closed; pipeline runs end-to-end
+- Prompts rebuilt for current models — starting minimal, growing only
+  on evidence
+- Eval framework with calibrated graders and a measured baseline
+- Validation runs pass against backfila#546 plus at least one fresh PR
+
+Later versions below (V1.01, V1.1, Future Ideas) predate the rework and
+may be redefined as part of it.
 
 ## V1.01 — TUI
 
