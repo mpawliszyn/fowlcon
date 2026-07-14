@@ -116,7 +116,7 @@ now fully decided.
 produce a failure journal + real state-file artifacts. Document, don't
 fix.
 **Model:** Opus (runtime parity; preserves Fable budget).
-**Setup — agent-performed 2026-07-13** (per Mike: S1 runs with an
+**Setup — agent-performed 2026-07-14** (per Mike: S1 runs with an
 agent's help). A setup agent executed the steps below; its record and
 any setup SF findings are in the run journal's Setup section, which
 ends with the exact launch commands. Steps documented for rerun:
@@ -139,7 +139,7 @@ inherit Fowlcon's own instructions into the session.
    If plugin discovery fails — plausible, F4 — fall back to copying
    `commands/` and `agents/` into the profile and log that as the
    first journal finding.
-3. Launch (verified working 2026-07-13):
+3. Launch (verified working 2026-07-14):
    ```
    cd ~/Development/tmp/fowlcon/backfila
    CLAUDE_CONFIG_DIR=$HOME/Development/tmp/fowlcon/profile claude --model opus --add-dir ~/Development/fowlcon
